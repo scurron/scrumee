@@ -1,0 +1,23 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+services:
+    # Guzzle Client Factory
+    guzzle_client.factory:
+        class: Scrumee\ApiBundle\Client\ClientFactory
+
+    # Jira Client created using the factory method
+    jira_client:
+        class: Scrumee\ApiBundle\Client\JiraClient
+        factory: ['@guzzle_client.factory', createJiraClient]
+        arguments: ['%guzzle_api.options%', '%jira_api.parameters%']
+
+
+    # Jira Finder
+    jira_finder:
+        class: Scrumee\ApiBundle\Finder\Finder
+        arguments: ['@jira_client']
+
+    # Jira Manager
+    jira_manager:
+        class: Scrumee\ApiBundle\Manager\JiraManager
+        arguments: ['@jira_finder']

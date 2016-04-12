@@ -1,0 +1,7 @@
+api_project:
+    type: rest
+    resource: "Scrumee\\ApiBundle\\Controller\\ProjectController"
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
