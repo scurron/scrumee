@@ -1,16 +1,26 @@
 <?php
 
-namespace Scrumee\ApiBundle\Entity;
+namespace Scrumee\ApiBundle\Entity\Jira;
 
+/**
+ * Class Category
+ * @package Scrumee\ApiBundle\Entity\Jira
+ *
+ * http://par-jira.us.tripadvisor.local/rest/api/2/project
+ */
 class Category
 {
+    /** @var string */
     protected $url;
+    /** @var integer */
     protected $cid;
+    /** @var string */
     protected $description;
+    /** @var string */
     protected $name;
 
     /**
-     * @param mixed $description
+     * @param string $description
      */
     public function setDescription($description)
     {
@@ -20,7 +30,7 @@ class Category
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getDescription()
     {
@@ -28,7 +38,7 @@ class Category
     }
 
     /**
-     * @param mixed $id
+     * @param integer $id
      */
     public function setCid($cid)
     {
@@ -38,15 +48,15 @@ class Category
     }
 
     /**
-     * @return mixed
+     * @return integer
      */
     public function getCid()
     {
-        return $this->id;
+        return $this->cid;
     }
 
     /**
-     * @param mixed $name
+     * @param string $name
      */
     public function setName($name)
     {
@@ -56,7 +66,7 @@ class Category
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getName()
     {
@@ -64,7 +74,7 @@ class Category
     }
 
     /**
-     * @param mixed $url
+     * @param string $url
      */
     public function setUrl($url)
     {
@@ -74,10 +84,11 @@ class Category
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getUrl()
     {
         return $this->url;
     }
 }
+

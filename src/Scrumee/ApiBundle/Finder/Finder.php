@@ -4,7 +4,7 @@ namespace Scrumee\ApiBundle\Finder;
 
 use Scrumee\ApiBundle\Finder\FinderInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareTrait;
-use Scrumee\ApiBundle\Client\JiraClient;
+use Scrumee\ApiBundle\Client\ApiClient;
 
 class Finder implements FinderInterface
 {
@@ -16,7 +16,7 @@ class Finder implements FinderInterface
     /**
      * @param JiraClient $client
      */
-    public function __construct(JiraClient $client)
+    public function __construct(ApiClient $client)
     {
         $this->client = $client->getClient();
     }
@@ -39,3 +39,4 @@ class Finder implements FinderInterface
         return $response;
     }
 }
+

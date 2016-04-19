@@ -4,7 +4,7 @@ namespace Scrumee\ApiBundle\Client;
 
 use Guzzle\Http\Client as GuzzleClient;
 
-class JiraClient
+class ApiClient
 {
     const REQUEST_OPTIONS_AUTH_NAME = 'auth';
 
@@ -20,17 +20,9 @@ class JiraClient
     public function __construct(GuzzleClient $client, $options)
     {
         $this->client = $client;
-
-//        echo $options['base_url'];
-//        $this->client->setBaseUrl($options['base_url']);
-//        $this->client->setConfig([
-//                'auh' => [$options['auth']['username'], $options['auth']['password']],
-//                'debug' => true
-//            ]
-//        );
-
-//        $this->client->setDefaultOption('debug', true);
-        //$this->setAuth($options['auth']['username'], $options['auth']['password']);
+        $this->setBaseUrl($options['base_url']);
+        $this->setDefaultOption('debug', true);
+        $this->setAuth($options['auth']['username'], $options['auth']['password']);
     }
 
     /**
@@ -101,3 +93,4 @@ class JiraClient
         return $this->client;
     }
 }
+

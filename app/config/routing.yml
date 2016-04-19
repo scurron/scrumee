@@ -1,6 +1,18 @@
 api_project:
     type: rest
-    resource: "Scrumee\\ApiBundle\\Controller\\ProjectController"
+    resource: "Scrumee\\ApiBundle\\Controller\\Jira\\ProjectController"
+
+api_sprint:
+    type: rest
+    resource: "Scrumee\\ApiBundle\\Controller\\Jira\\SprintController"
+
+api_issue:
+    type: rest
+    resource: "Scrumee\\ApiBundle\\Controller\\Jira\\IssueController"
+
+api_rapidview:
+    type: rest
+    resource: "Scrumee\\ApiBundle\\Controller\\GreenHooper\RapidViewController"
 
 app:
     resource: "@AppBundle/Controller/"

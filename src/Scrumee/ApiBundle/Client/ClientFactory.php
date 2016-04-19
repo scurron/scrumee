@@ -3,7 +3,7 @@
 namespace Scrumee\ApiBundle\Client;
 
 use Guzzle\Http\Client as GuzzleClient;
-use Scrumee\ApiBundle\Client\JiraClient;
+use Scrumee\ApiBundle\Client\ApiClient;
 
 class ClientFactory
 {
@@ -19,10 +19,7 @@ class ClientFactory
     {
         $guzzleClient = new GuzzleClient();
 
-//        print_r($guzzleOptions);
-//        exit;
-
-        return new JiraClient($guzzleClient, $jiraOptions);
+        return new ApiClient($guzzleClient, $jiraOptions);
     }
 
     /**
@@ -34,3 +31,4 @@ class ClientFactory
 //    }
 
 }
+

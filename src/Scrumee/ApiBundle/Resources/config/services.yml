@@ -5,19 +5,44 @@ services:
     guzzle_client.factory:
         class: Scrumee\ApiBundle\Client\ClientFactory
 
-    # Jira Client created using the factory method
-    jira_client:
+    # API Serializer
+    api_serializer:
+        class: Scrumee\ApiBundle\Serializer\Serializer
+
+    # API Client (created using the factory method)
+    api_client:
         class: Scrumee\ApiBundle\Client\JiraClient
         factory: ['@guzzle_client.factory', createJiraClient]
         arguments: ['%guzzle_api.options%', '%jira_api.parameters%']
 
-
-    # Jira Finder
-    jira_finder:
+    # API Finder
+    api_finder:
         class: Scrumee\ApiBundle\Finder\Finder
-        arguments: ['@jira_client']
+        arguments: ['@api_client']
 
-    # Jira Manager
-    jira_manager:
-        class: Scrumee\ApiBundle\Manager\JiraManager
-        arguments: ['@jira_finder']
+    # API Manager
+    api_manager:
+        abstract: true
+        class: Scrumee\ApiBundle\Manager\AbstractManager
+        arguments: ['@api_finder', '@api_serializer']
+
+    # Jira Project Manager
+    jira_manager.project:
+        parent: api_manager
+        class: Scrumee\ApiBundle\Manager\Jira\ProjectManager
+
+    # Jira Sprint Manager
+    jira_manager.sprint:
+        parent: api_manager
+        class: Scrumee\ApiBundle\Manager\Jira\SprintManager
+
+    # Jira Issue Manager
+    jira_manager.issue:
+        parent: api_manager
+        class: Scrumee\ApiBundle\Manager\Jira\IssueManager
+
+    # Jira RapidView Manager
+    jira_manager.rapid_view:
+        parent: api_manager
+        class: Scrumee\ApiBundle\Manager\GreenHooper\RapidViewManager
+

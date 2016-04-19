@@ -26,12 +26,6 @@ class Configuration implements ConfigurationInterface
                         ->append($this->addJiraProjectsParametersNode())
                     ->end()
                 ->end()
-
-                ->arrayNode('greenhooper_parameters')
-                    ->children()
-                        ->scalarNode('base_url')->isRequired()->cannotBeEmpty()->end()
-                    ->end()
-                ->end()
             ->end()
         ;
 
