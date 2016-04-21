@@ -42,15 +42,6 @@ class IssueManager extends AbstractManager
             $issue->setAssignee($data->fields->assignee);
             $issue->setUrl($data->self);
 
-            // project
-            $project = new Project();
-            $project->setPid($data->fields->project->id);
-            $project->setKey($data->fields->project->key);
-            $project->setName($data->fields->project->name);
-            $project->setUrl($data->fields->project->self);
-
-            $issue->addProject($project);
-
             $issues[] = $issue;
         }
 

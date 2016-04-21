@@ -41,8 +41,7 @@ services:
         parent: api_manager
         class: Scrumee\ApiBundle\Manager\Jira\IssueManager
 
-    # Jira RapidView Manager
-    jira_manager.rapid_view:
+    # Jira XBoard
+    jira_manager.xboard:
         parent: api_manager
-        class: Scrumee\ApiBundle\Manager\GreenHooper\RapidViewManager
-
+        class: Scrumee\ApiBundle\Manager\GreenHooper\XBoardManager

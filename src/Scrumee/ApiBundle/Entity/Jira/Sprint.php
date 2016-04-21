@@ -20,6 +20,8 @@ class Sprint
     protected $endsAt;
     /** @var boolean */
     protected $isClosed;
+    /** @var integer */
+    protected $daysRemaining;
     /** @var string */
     protected $projects;
     /** @var string */
@@ -84,6 +86,23 @@ class Sprint
     {
         return $this->isClosed;
     }
+
+    /**
+     * @param int $daysRemaining
+     */
+    public function setDaysRemaining($daysRemaining)
+    {
+        $this->daysRemaining = $daysRemaining;
+    }
+
+    /**
+     * @return int
+     */
+    public function getDaysRemaining()
+    {
+        return $this->daysRemaining;
+    }
+
 
     /**
      * @param string $url

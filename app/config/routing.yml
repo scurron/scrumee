@@ -10,9 +10,9 @@ api_issue:
     type: rest
     resource: "Scrumee\\ApiBundle\\Controller\\Jira\\IssueController"
 
-api_rapidview:
+api_xboard:
     type: rest
-    resource: "Scrumee\\ApiBundle\\Controller\\GreenHooper\RapidViewController"
+    resource: "Scrumee\\ApiBundle\\Controller\\GreenHooper\XBoardController"
 
 app:
     resource: "@AppBundle/Controller/"

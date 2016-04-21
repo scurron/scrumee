@@ -92,6 +92,4 @@ class ProjectManager extends AbstractManager
         // json data
         return $this->serializer->objectToJson($project, 'json');
     }
-
-
 }

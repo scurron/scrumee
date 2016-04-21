@@ -9,12 +9,15 @@ use Symfony\Component\HttpFoundation\Response;
 
 class IssueController extends FOSRestController implements ClassResourceInterface
 {
-    /** Returns  */
-    public function cgetAction($projectId)
+    /**
+     * @param integer $projectId
+     *
+     * @return Response
+     */
+    public function cgetAction($pid)
     {
-        $projectId = 12101;
         $pMger = $this->get('jira_manager.project');
-        $project = $pMger->getProject($projectId, true);
+        $project = $pMger->getProject($pid, true);
 
         $sMger = $this->get('jira_manager.issue');
         $response = $sMger->getIssues($project);

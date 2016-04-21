@@ -7,11 +7,15 @@ use Scrumee\ApiBundle\Entity\Jira\Project;
 class Issue
 {
     protected $iid;
+    protected $isDone;
     protected $key;
     protected $summary;
     protected $priority;
     protected $status;
+    protected $statusId;
+    protected $statusName;
     protected $statusCategoryName;
+    protected $statusCategoryKey;
     protected $createdAt;
     protected $assignee;
     protected $url;
@@ -39,6 +43,22 @@ class Issue
     public function setKey($key)
     {
         $this->key = $key;
+    }
+
+    /**
+     * @param mixed $isDone
+     */
+    public function setIsDone($isDone)
+    {
+        $this->isDone = $isDone;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIsDone()
+    {
+        return $this->isDone;
     }
 
     /**
@@ -99,6 +119,38 @@ class Issue
     }
 
     /**
+     * @param mixed $statusId
+     */
+    public function setStatusId($statusId)
+    {
+        $this->statusId = $statusId;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStatusId()
+    {
+        return $this->statusId;
+    }
+
+    /**
+     * @param mixed $statusName
+     */
+    public function setStatusName($statusName)
+    {
+        $this->statusName = $statusName;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStatusName()
+    {
+        return $this->statusName;
+    }
+
+    /**
      * @param mixed $statusCategoryName
      */
     public function setStatusCategoryName($statusCategoryName)
@@ -112,6 +164,22 @@ class Issue
     public function getStatusCategoryName()
     {
         return $this->statusCategoryName;
+    }
+
+    /**
+     * @param mixed $statusCategoryKey
+     */
+    public function setStatusCategoryKey($statusCategoryKey)
+    {
+        $this->statusCategoryKey = $statusCategoryKey;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStatusCategoryKey()
+    {
+        return $this->statusCategoryKey;
     }
 
     /**

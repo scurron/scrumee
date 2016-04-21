@@ -80,11 +80,14 @@ api:
 #            'User-Agent': 'scrumee_api/0.0.1'
 
     jira_parameters:
-        base_url: '<your_rest_base_url>'
+        base_url: 'http://par-jira.us.tripadvisor.local/rest/'
         auth:
             username: %jira_username%
             password: %jira_password%
         projects:
             uuid:
-                - 000001 #1 project
-                - 000002 #2 project
+                - 11005 # OI Internal Tools Projects
+                - 11504 # Adyen
+                - 10603 # B2C SEO
+                - 10800 # B2C Projets
+                - 11603 # Sales & Services
