@@ -8,6 +8,8 @@ use Scrumee\ApiBundle\Entity\Jira\Sprint;
 
 class SprintManager extends AbstractManager
 {
+    const API_PROJECT_SPRINTS_URI = 'greenhopper/1.0/integration/teamcalendars/sprint/list?jql=project=%d';
+
     /**
      * Returns all Sprints related to a project
      *
@@ -15,7 +17,7 @@ class SprintManager extends AbstractManager
      */
     public function getSprints(Project $project)
     {
-        $fromUri = sprintf('greenhopper/1.0/integration/teamcalendars/sprint/list?jql=project=%d', $project->getPid());
+        $fromUri = sprintf(self::API_PROJECT_SPRINTS_URI, $project->getPid());
 
         $datas = $this->finder->getData($fromUri);
         $decodedData = json_decode($datas);

@@ -1,19 +1,4 @@
-api_project:
+scrumee:
     type: rest
-    resource: "Scrumee\\ApiBundle\\Controller\\Jira\\ProjectController"
-
-api_sprint:
-    type: rest
-    resource: "Scrumee\\ApiBundle\\Controller\\Jira\\SprintController"
-
-api_issue:
-    type: rest
-    resource: "Scrumee\\ApiBundle\\Controller\\Jira\\IssueController"
-
-api_xboard:
-    type: rest
-    resource: "Scrumee\\ApiBundle\\Controller\\GreenHooper\XBoardController"
-
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
+    resource: "@ApiBundle/Resources/config/scrumee_routes.yml"
+    prefix: api

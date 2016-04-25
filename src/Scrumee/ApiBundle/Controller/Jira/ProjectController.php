@@ -7,7 +7,14 @@ use FOS\RestBundle\Routing\ClassResourceInterface;
 use Guzzle\Http\Exception\RequestException;
 use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\Controller\Annotations\Get;
+use FOS\RestBundle\Controller\Annotations\Prefix;
 
+/**
+ * Class ProjectController
+ * @package AppBundle\Controller\Jira
+ *
+ * Prefix("api")
+ */
 class ProjectController extends FOSRestController implements ClassResourceInterface
 {
     /**
@@ -36,7 +43,7 @@ class ProjectController extends FOSRestController implements ClassResourceInterf
     }
 
     /**
-     * @Get("/projects/{pid}/sprints", name="get_project_sprints", options={ "method_prefix" = false })
+     * @Get("projects/{pid}/sprints", name="get_project_sprints", options={ "method_prefix" = false })
      *
      * @param integer $projectId
      *
@@ -54,7 +61,7 @@ class ProjectController extends FOSRestController implements ClassResourceInterf
     }
 
     /**
-     * @Get("/projects/{pid}/issues", name="get_project_issues", options={ "method_prefix" = false })
+     * @Get("projects/{pid}/issues", name="get_project_issues", options={ "method_prefix" = false })
      *
      * @param integer $projectId
      *

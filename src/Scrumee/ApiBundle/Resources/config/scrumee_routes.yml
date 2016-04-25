@@ -1,0 +1,9 @@
+api_project:
+    type: rest
+    resource: "Scrumee\ApiBundle\\Controller\\Jira\\ProjectController"
+    name_prefix: api_
+
+api_xboard:
+    type: rest
+    resource: "Scrumee\ApiBundle\\Controller\\GreenHooper\XBoardController"
+    name_prefix: api_

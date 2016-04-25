@@ -19,6 +19,7 @@ use Scrumee\ApiBundle\Manager\AbstractManager;
  */
 class XBoardManager extends AbstractManager
 {
+    const API_RAPIDVIEW_ISSUES_URI = 'greenhopper/1.0/xboard/work/allData/?rapidViewId=%d';
     const XBOARD_SPRINT_ACTIVE = 'ACTIVE';
     const XBOARD_SPRINT_CLOSE = 'CLOSED';
     const XBOARD_ISSUE_TYPE_SUB_TASK = 'Sub-task';
@@ -38,7 +39,7 @@ class XBoardManager extends AbstractManager
      */
     public function getIssues($rapidViewId, Project $project = null)
     {
-        $fromUri = sprintf('greenhopper/1.0/xboard/work/allData/?rapidViewId=%d', $rapidViewId);
+        $fromUri = sprintf(self::API_RAPIDVIEW_ISSUES_URI, $rapidViewId);
 
         $datas = $this->finder->getData($fromUri);
         $decodedData = json_decode($datas);

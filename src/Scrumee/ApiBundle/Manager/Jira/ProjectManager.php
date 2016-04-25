@@ -10,6 +10,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 class ProjectManager extends AbstractManager
 {
+    const API_PROJECTS_URI = 'api/2/project';
+
     /**
      * Returns all JIRA projects
      *
@@ -17,7 +19,7 @@ class ProjectManager extends AbstractManager
      */
     public function getProjects($returnObjectDatas = AbstractManager::RETURN_OBJECT_DATAS)
     {
-        $fromUri = sprintf('api/2/project');
+        $fromUri = sprintf(self::API_PROJECTS_URI);
 
         $datas = $this->finder->getData($fromUri);
         $decodedData = json_decode($datas);

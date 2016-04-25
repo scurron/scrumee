@@ -85,6 +85,7 @@ api:
             username: %jira_username%
             password: %jira_password%
         projects:
+            #rvid:
             uuid:
                 - 11005 # OI Internal Tools Projects
                 - 11504 # Adyen

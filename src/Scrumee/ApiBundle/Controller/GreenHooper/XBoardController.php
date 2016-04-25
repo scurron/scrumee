@@ -7,7 +7,13 @@ use FOS\RestBundle\Routing\ClassResourceInterface;
 use Guzzle\Http\Exception\RequestException;
 use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\Controller\Annotations\Get;
+use FOS\RestBundle\Controller\Annotations\Prefix;
 
+/**
+ * Class XBoardController
+ * @package AppBundle\Controller\GreenHooper
+ *
+ */
 class XBoardController extends FOSRestController implements ClassResourceInterface
 {
     /**

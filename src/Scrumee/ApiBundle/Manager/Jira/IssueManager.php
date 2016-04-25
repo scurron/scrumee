@@ -8,6 +8,8 @@ use Scrumee\ApiBundle\Manager\AbstractManager;
 
 class IssueManager extends AbstractManager
 {
+    const API_PROJECT_ISSUES_URI = 'api/2/search?jql=project=%d';
+
     /**
      * Returns all Issues related to a project
      *
@@ -19,7 +21,7 @@ class IssueManager extends AbstractManager
      */
     public function getIssues(Project $project)
     {
-        $fromUri = sprintf('api/2/search?jql=project=%d', $project->getPid());
+        $fromUri = sprintf(self::API_PROJECT_ISSUES_URI, $project->getPid());
 
         $datas = $this->finder->getData($fromUri);
         $decodedData = json_decode($datas);
